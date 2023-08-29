@@ -3,6 +3,7 @@ package ru.job4j.map;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class User {
     private String name;
@@ -31,5 +32,16 @@ public class User {
         map.forEach((user, o) -> System.out.printf("User = %s, Object = %s\n", user, o));
         System.out.printf("User1: hashCode %S, hash %s, bucket %s\n", hashCode1, hash1, buket1);
         System.out.printf("User2: hashCode %S, hash %s, bucket %s\n", hashCode2, hash2, buket2);
+        System.out.printf("user2.equals(user1) = %s", user2.equals(user1));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 }
