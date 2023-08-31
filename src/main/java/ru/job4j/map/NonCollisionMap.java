@@ -66,11 +66,10 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
 
     private int getExistingIndexByKey(K key) {
         int rsl = -1;
-        int hk = Objects.hashCode(key);
-        int index = indexFor(hash(hk));
+        int index = getIndexForKey(key);
         MapEntry<K, V> entry = table[index];
         if (entry != null
-                && Objects.hashCode(entry.key) == hk
+                && Objects.hashCode(entry.key) == Objects.hashCode(key)
                 && Objects.equals(entry.key, key)) {
             rsl = index;
         }
