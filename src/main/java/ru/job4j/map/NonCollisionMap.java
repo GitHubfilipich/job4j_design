@@ -19,7 +19,7 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         if ((float) count / capacity >= LOAD_FACTOR) {
             expand();
         }
-        int index = indexFor(hash(Objects.hashCode(key)));
+        int index = getIndexForKey(key);
         boolean rsl = false;
         if (table[index] == null) {
             table[index] = new MapEntry<>(key, value);
@@ -28,6 +28,10 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
             rsl = true;
         }
         return rsl;
+    }
+
+    private int getIndexForKey(K key) {
+        return indexFor(hash(Objects.hashCode(key)));
     }
 
     private int hash(int hashCode) {
@@ -44,7 +48,7 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         for (int i = 0; i < capacity / 2; i++) {
             if (table[i] != null) {
                 MapEntry<K, V> entry = table[i];
-                newTable[indexFor(hash(Objects.hashCode(entry.key)))] = entry;
+                newTable[getIndexForKey(entry.key)] = entry;
             }
         }
         table = newTable;
