@@ -3,3 +3,5 @@ target
 .idea
 /data/dataresult.txt
 /data/fileofmultiple.txt
+/data/print.txt
+/data/write.txt
