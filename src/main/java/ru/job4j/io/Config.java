@@ -23,11 +23,13 @@ public class Config {
                     if (s.startsWith("=")) {
                         throw new IllegalArgumentException();
                     }
-                    String[] subStrings = s.split("=");
-                    if (subStrings.length == 1) {
+                    String[] subStrings = s.split("=", 2);
+                    if (subStrings.length == 2 && !subStrings[0].isBlank() && !subStrings[1].isBlank()) {
+                        values.put(subStrings[0], subStrings[1]);
+                    } else {
                         throw new IllegalArgumentException();
                     }
-                    values.put(subStrings[0], s.substring(subStrings[0].length() + 1));
+
                 }
             });
         } catch (IOException e) {
