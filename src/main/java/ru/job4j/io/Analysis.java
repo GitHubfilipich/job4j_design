@@ -14,7 +14,9 @@ public class Analysis {
                     out.write(subStrings[1]);
                     available = false;
                 } else if (!available && !"400".equals(subStrings[0]) && !"500".equals(subStrings[0])) {
-                    out.write(";" + subStrings[1] + System.lineSeparator());
+                    out.write(";");
+                    out.write(subStrings[1]);
+                    out.write(System.lineSeparator());
                     available = true;
                 }
             }
