@@ -6,3 +6,5 @@ target
 /data/print.txt
 /data/write.txt
 /data/message.txt
+/src/main/java/ru/job4j/io/files/directory/file1.txt
+/src/main/java/ru/job4j/io/files/directory/file2.txt
