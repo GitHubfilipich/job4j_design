@@ -17,11 +17,20 @@ public class Search {
 
     private static void validateParameters(String[] args) {
         if (args.length < 2) {
-            throw new IllegalArgumentException("Incorrect parameters");
+            throw new IllegalArgumentException("Incorrect parameters - number of parameters less then two");
         }
         File dir = Path.of(args[0]).toFile();
-        if (!dir.isDirectory() || !dir.exists() || !args[1].startsWith(".") || args[1].length() == 1) {
-            throw new IllegalArgumentException("Incorrect parameters");
+        if (!dir.isDirectory()) {
+            throw new IllegalArgumentException("Incorrect first parameter - it`s not directory");
+        }
+        if (!dir.exists()) {
+            throw new IllegalArgumentException("Incorrect first parameter - directory not exists");
+        }
+        if (!args[1].startsWith(".")) {
+            throw new IllegalArgumentException("Incorrect second parameter - not starts with dot mark");
+        }
+        if (args[1].length() == 1) {
+            throw new IllegalArgumentException("Incorrect second parameter - not contain any symbols other than a dot");
         }
     }
 
