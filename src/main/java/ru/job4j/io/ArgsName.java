@@ -17,24 +17,29 @@ public class ArgsName {
 
     private void parse(String[] args) {
         for (String s : args) {
-            if (!s.contains("=")) {
-                throw new IllegalArgumentException(
-                        String.format("Error: This argument '%s' does not contain an equal sign", s));
-            }
-            if (!s.startsWith("-")) {
-                throw new IllegalArgumentException(
-                        String.format("Error: This argument '%s' does not start with a '-' character", s));
-            }
+            validateParameter(s);
             String[] keyAndValue = s.split("=", 2);
-            if (keyAndValue[0].length() == 1) {
-                throw new IllegalArgumentException(
-                        String.format("Error: This argument '%s' does not contain a key", s));
-            }
-            if (keyAndValue.length < 2 || keyAndValue[1].isEmpty()) {
-                throw new IllegalArgumentException(
-                        String.format("Error: This argument '%s' does not contain a value", s));
-            }
             values.put(keyAndValue[0].substring(1), keyAndValue[1]);
+        }
+    }
+
+    private void validateParameter(String s) {
+        if (!s.contains("=")) {
+            throw new IllegalArgumentException(
+                    String.format("Error: This argument '%s' does not contain an equal sign", s));
+        }
+        if (!s.startsWith("-")) {
+            throw new IllegalArgumentException(
+                    String.format("Error: This argument '%s' does not start with a '-' character", s));
+        }
+        String[] keyAndValue = s.split("=", 2);
+        if (keyAndValue[0].length() == 1) {
+            throw new IllegalArgumentException(
+                    String.format("Error: This argument '%s' does not contain a key", s));
+        }
+        if (keyAndValue.length < 2 || keyAndValue[1].isEmpty()) {
+            throw new IllegalArgumentException(
+                    String.format("Error: This argument '%s' does not contain a value", s));
         }
     }
 
