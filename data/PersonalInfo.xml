@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<PersonalInfo id="1" actual="true" comment="Confidential">
+    <person sex="false" age="30">
+        <contact phone="11-111"/>
+        <statuses>
+            <status>Worker</status>
+            <status>Married</status>
+        </statuses>
+    </person>
+    <tags>
+        <tag>fun</tag>
+        <tag>joke</tag>
+    </tags>
+</PersonalInfo>
