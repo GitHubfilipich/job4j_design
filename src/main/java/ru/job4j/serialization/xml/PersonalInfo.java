@@ -1,13 +1,24 @@
 package ru.job4j.serialization.xml;
 
+import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
+@XmlRootElement(name = "PersonalInfo")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PersonalInfo {
-    private final int id;
-    private final Person person;
-    private final boolean actual;
-    private final String comment;
-    private final String[] tags;
+    @XmlAttribute
+    private int id;
+    private Person person;
+    @XmlAttribute
+    private boolean actual;
+    @XmlAttribute
+    private String comment;
+    @XmlElementWrapper(name = "tags")
+    @XmlElement(name = "tag")
+    private String[] tags;
+
+    public PersonalInfo() {
+    }
 
     public PersonalInfo(int id, Person person, boolean actual, String comment, String[] tags) {
         this.id = id;
