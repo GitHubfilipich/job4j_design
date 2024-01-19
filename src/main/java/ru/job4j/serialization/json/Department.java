@@ -28,4 +28,24 @@ public class Department {
                 + ", contacts=" + Arrays.toString(contacts)
                 + '}';
     }
+
+    public boolean getActual() {
+        return actual;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Person getSupervisor() {
+        return supervisor;
+    }
+
+    public Contact[] getContacts() {
+        return contacts;
+    }
 }
