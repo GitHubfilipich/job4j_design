@@ -1,0 +1,2 @@
+call delete_data_on_id_or_less_when_min_count_procedure(2, 5);
+select rows_of_deleted_data_on_id_or_less_when_min_count_procedure(2, 6);
