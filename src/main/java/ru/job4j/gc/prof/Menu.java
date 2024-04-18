@@ -47,30 +47,20 @@ public class Menu {
                 System.out.println(ARRAY_INFO + size);
             } else if (MERGE_SORT == userChoice) {
                 System.out.printf("%s%s%s%n", merge.getClass().getSimpleName(), BEGIN, LocalTime.now());
-                printSecondsFromStart();
                 merge.sort(store);
                 System.out.printf("%s%s%s%n", merge.getClass().getSimpleName(), END, LocalTime.now());
-                printSecondsFromStart();
             } else if (BUBBLE_SORT == userChoice) {
                 System.out.printf("%s%s%s%n", bubble.getClass().getSimpleName(), BEGIN, LocalTime.now());
-                printSecondsFromStart();
                 bubble.sort(store);
                 System.out.printf("%s%s%s%n", bubble.getClass().getSimpleName(), END, LocalTime.now());
-                printSecondsFromStart();
             } else if (INSERT_SORT == userChoice) {
                 System.out.printf("%s%s%s%n", insert.getClass().getSimpleName(), BEGIN, LocalTime.now());
-                printSecondsFromStart();
                 insert.sort(store);
                 System.out.printf("%s%s%s%n", insert.getClass().getSimpleName(), END, LocalTime.now());
-                printSecondsFromStart();
             } else {
                 run = false;
                 System.out.println("Конец работы");
             }
         }
-    }
-
-    private static void printSecondsFromStart() {
-        System.out.printf("%s from start\n", (double) (System.currentTimeMillis() - startTime) / 1000);
     }
 }
