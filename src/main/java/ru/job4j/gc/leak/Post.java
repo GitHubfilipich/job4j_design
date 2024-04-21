@@ -31,8 +31,4 @@ public class Post {
 
     /*остальные getter/setter*/
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-    }
 }

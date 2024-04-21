@@ -13,6 +13,7 @@ public class CommentGenerator implements Generate {
     private static List<Comment> comments = new ArrayList<>();
     public static final Integer COUNT = 50;
     private static List<String> phrases;
+    public static final String COMMENT_PATTERN = "%s%s%s%s%s";
     private UserGenerator userGenerator;
     private Random random;
 
@@ -30,7 +31,8 @@ public class CommentGenerator implements Generate {
         }
     }
 
-    public static List<Comment> getComments() {
+    public List<Comment> getComments() {
+        generate();
         return comments;
     }
 
@@ -38,7 +40,7 @@ public class CommentGenerator implements Generate {
     public void generate() {
         comments.clear();
         for (int i = 0; i < COUNT; i++) {
-            String comment = String.format("%s%s%s%s%s",
+            String comment = String.format(COMMENT_PATTERN,
                     phrases.get(random.nextInt(phrases.size())), SEPARATOR,
                     phrases.get(random.nextInt(phrases.size())), SEPARATOR,
                     phrases.get(random.nextInt(phrases.size())));

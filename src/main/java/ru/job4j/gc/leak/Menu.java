@@ -43,16 +43,14 @@ public class Menu {
             if (ADD_POST == userChoice) {
                 System.out.println(TEXT_OF_POST);
                 String text = scanner.nextLine();
-                userGenerator.generate();
-                commentGenerator.generate();
-                postStore.add(new Post(text, CommentGenerator.getComments()));
+                createPost(commentGenerator, postStore, text);
             } else if (ADD_MANY_POST == userChoice) {
                 System.out.println(TEXT_OF_POST);
                 String text = scanner.nextLine();
                 System.out.println(COUNT);
                 String count = scanner.nextLine();
                 for (int i = 0; i < Integer.parseInt(count); i++) {
-                    createPost(commentGenerator, userGenerator, postStore, text);
+                    createPost(commentGenerator, postStore, text);
                 }
             } else if (SHOW_ALL_POSTS == userChoice) {
                 System.out.println(PostStore.getPosts());
@@ -66,10 +64,7 @@ public class Menu {
         }
     }
 
-    private static void createPost(CommentGenerator commentGenerator,
-                                   UserGenerator userGenerator, PostStore postStore, String text) {
-        userGenerator.generate();
-        commentGenerator.generate();
-        postStore.add(new Post(text, CommentGenerator.getComments()));
+    private static void createPost(CommentGenerator commentGenerator, PostStore postStore, String text) {
+        postStore.add(new Post(text, commentGenerator.getComments()));
     }
 }

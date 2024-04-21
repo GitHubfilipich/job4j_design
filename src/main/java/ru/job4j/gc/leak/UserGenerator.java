@@ -23,6 +23,7 @@ public class UserGenerator implements Generate {
     public UserGenerator(Random random) {
         this.random = random;
         readAll();
+        generate();
     }
 
     @Override
