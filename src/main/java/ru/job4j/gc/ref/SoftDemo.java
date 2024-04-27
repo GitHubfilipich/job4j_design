@@ -8,7 +8,7 @@ public class SoftDemo {
 
     public static void main(String[] args) {
         example1();
-        //example2();
+        example2();
     }
 
     private static void example1() {
@@ -50,7 +50,7 @@ public class SoftDemo {
         } else {
             System.out.println("do something");
         }
-        // do something
+        System.out.println("do something");
         someData.get(0).get();
     }
 
@@ -62,7 +62,7 @@ public class SoftDemo {
         } else {
             System.out.println("do something");
         }
-        // work with strong
+        System.out.println("work with strong");
     }
 
 }
