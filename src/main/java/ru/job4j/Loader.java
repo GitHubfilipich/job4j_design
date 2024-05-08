@@ -11,6 +11,11 @@ public class Loader {
         Class string = String.class;
         System.out.println("Класс переменной loader: " + string);
         System.out.println("Загрузчик класса переменной string:  " + string.getClassLoader());
+
+        System.out.println();
+        Class date = java.sql.Date.class;
+        System.out.println("Класс переменной loader: " + date);
+        System.out.println("Загрузчик класса переменной date:  " + date.getClassLoader());
     }
 
 }
