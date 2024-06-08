@@ -9,6 +9,6 @@ public class Bmw implements Auto {
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
     }
 }

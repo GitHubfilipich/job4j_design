@@ -1,6 +1,5 @@
 package ru.job4j.ood.parking.sevice;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ru.job4j.ood.parking.model.*;
 
@@ -9,15 +8,14 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Disabled("Тесты отключены до момента реализации всех методов")
 class SmartParkingServiceTest {
 
     @Test
     void whenParkAutoThenParkingSpaces() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new StandardParking(spacesInfo);
@@ -28,10 +26,10 @@ class SmartParkingServiceTest {
 
     @Test
     void whenParkTruckAutoThenParkingSpaces() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new StandardParking(spacesInfo);
@@ -42,9 +40,9 @@ class SmartParkingServiceTest {
 
     @Test
     void whenParkTruckAutoOnCarSpacesThenParkingSpaces() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        ParkingSpace space3 = new CarParkingSpace(1);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        ParkingSpace space3 = new CarParkingSpace(1, 3);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of());
         Parking parking = new StandardParking(spacesInfo);
@@ -57,8 +55,8 @@ class SmartParkingServiceTest {
 
     @Test
     void whenParkAutoAndHaveNotSpacesThenEmptyParkingSpaces() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of());
         Parking parking = new StandardParking(spacesInfo);
@@ -73,8 +71,8 @@ class SmartParkingServiceTest {
 
     @Test
     void whenGetAutoThenAuto() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of());
         Parking parking = new StandardParking(spacesInfo);
@@ -86,8 +84,8 @@ class SmartParkingServiceTest {
 
     @Test
     void whenGetAutoNotParkedThenNull() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of());
         Parking parking = new StandardParking(spacesInfo);

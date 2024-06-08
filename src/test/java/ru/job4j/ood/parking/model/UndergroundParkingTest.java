@@ -1,6 +1,5 @@
 package ru.job4j.ood.parking.model;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,15 +7,14 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Disabled("Тесты отключены до момента реализации всех методов")
 class UndergroundParkingTest {
 
     @Test
     void whenGetParkingSpacesInfo() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);
@@ -25,10 +23,10 @@ class UndergroundParkingTest {
 
     @Test
     void whenParkCarAutoThenTrue() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);
@@ -38,10 +36,10 @@ class UndergroundParkingTest {
 
     @Test
     void whenParkCarAutoOnBusySpaceThenFalse() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);
@@ -53,10 +51,10 @@ class UndergroundParkingTest {
 
     @Test
     void whenParkTruckAutoOnTruckSpaceThenTrue() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);
@@ -66,10 +64,10 @@ class UndergroundParkingTest {
 
     @Test
     void whenParkTruckAutoOnNotEnoughCarSpacesThenFalse() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);
@@ -79,10 +77,10 @@ class UndergroundParkingTest {
 
     @Test
     void whenGetAutoThenTrue() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);
@@ -93,10 +91,10 @@ class UndergroundParkingTest {
 
     @Test
     void whenGetAutoFromIncorrectSpacesThenFalse() {
-        ParkingSpace space1 = new CarParkingSpace(1);
-        ParkingSpace space2 = new CarParkingSpace(1);
-        TruckParkingSpace space3 = new TruckParkingSpace(2);
-        TruckParkingSpace space4 = new TruckParkingSpace(3);
+        ParkingSpace space1 = new CarParkingSpace(1, 1);
+        ParkingSpace space2 = new CarParkingSpace(1, 2);
+        TruckParkingSpace space3 = new TruckParkingSpace(2, 3);
+        TruckParkingSpace space4 = new TruckParkingSpace(3, 4);
         Map<ParkingSpace, List<ParkingSpace>> spacesInfo = Map.of(space1, List.of(space2),
                 space2, List.of(space3), space3, List.of(space4), space4, List.of());
         Parking parking = new UndergroundParking(spacesInfo);

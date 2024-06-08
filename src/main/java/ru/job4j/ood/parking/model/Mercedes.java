@@ -9,6 +9,6 @@ public class Mercedes implements Auto {
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
     }
 }
