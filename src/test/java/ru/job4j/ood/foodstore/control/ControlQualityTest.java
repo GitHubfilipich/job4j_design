@@ -70,14 +70,14 @@ class ControlQualityTest {
     void whenResortStores() {
         Food lollipop = new Lollipop("Lollipops", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2034, Calendar.DECEMBER, 31));
-        Food rice = new Rice("Rice", new GregorianCalendar(2024, Calendar.JANUARY, 1),
+        Food rice = new Rice("Rices", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2034, Calendar.DECEMBER, 31));
-        Food meat = new Meat("Meat", new GregorianCalendar(2024, Calendar.JANUARY, 1),
+        Food meat = new Meat("Meats", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2024, Calendar.DECEMBER, 31));
-        Food fish = new Fish("Fish", new GregorianCalendar(2024, Calendar.JANUARY, 1),
+        Food fish = new Fish("Fishs", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2024, Calendar.JUNE, 30));
         fish.setPrice(10f);
-        Food tomato = new Tomato("Tomato", new GregorianCalendar(2024, Calendar.JANUARY, 1),
+        Food tomato = new Tomato("Tomatos", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2024, Calendar.JUNE, 30));
         tomato.setPrice(20f);
         Food cheese = new Cheese("Cheese", new GregorianCalendar(2024, Calendar.JANUARY, 1),
