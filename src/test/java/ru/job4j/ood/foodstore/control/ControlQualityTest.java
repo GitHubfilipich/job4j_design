@@ -77,7 +77,7 @@ class ControlQualityTest {
         Food fish = new Fish("Fishs", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2024, Calendar.JUNE, 30));
         fish.setPrice(10f);
-        Food tomato = new Tomato("Tomatos", new GregorianCalendar(2024, Calendar.JANUARY, 1),
+        Food tomato = new Tomato("Tomatoes", new GregorianCalendar(2024, Calendar.JANUARY, 1),
                 new GregorianCalendar(2024, Calendar.JUNE, 30));
         tomato.setPrice(20f);
         Food cheese = new Cheese("Cheese", new GregorianCalendar(2024, Calendar.JANUARY, 1),
